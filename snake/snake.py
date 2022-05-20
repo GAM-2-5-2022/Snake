@@ -22,8 +22,32 @@ black = pygame.Color(0, 0, 0)
 white = pygame.Color(255, 255, 255)
 red = pygame.Color(255, 0, 0)
 green = pygame.Color(0, 255, 0)
-blue = pygame.Color(0, 0, 255)
+blue = pygame.Color(109, 188, 252)
+yellow = pygame.Color(100,255,0)
+player_color_real = pygame.Color(0, 0, 0)
 
+#player colore 
+snake_color = str(input("Player color: "))
+if(snake_color == "green"):
+    player_color_real = green
+
+elif(snake_color == "white"):
+    player_color_real = white
+
+elif(snake_color == "red"):
+    player_color_real = red
+
+elif(snake_color == "blue"):
+    player_color_real = blue
+
+elif(snake_color == "yellow"):
+    player_color_real = yellow
+
+else:
+    player_color_real == green
+
+
+#pygame summon
 pygame.init()
 mixer.init()
 
@@ -36,6 +60,7 @@ pygame.mixer.music.play()
 
 
 
+#window
 pygame.display.set_caption("Snake that loves milk")
 window = pygame.display.set_mode((x, y))
  
@@ -163,7 +188,6 @@ while True:
 
         fruit_spawn = False
 
-        #for gamemode
 
     else:
         snake_body.pop()
@@ -176,7 +200,7 @@ while True:
     window.fill(black)
      
     for pos in snake_body:
-        pygame.draw.rect(window, green,
+        pygame.draw.rect(window, player_color_real,
                          pygame.Rect(pos[0], pos[1], 10, 10))
 
     pygame.draw.rect(window, white, pygame.Rect(
