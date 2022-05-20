@@ -29,7 +29,7 @@ mixer.init()
 
 #song
 #not added 
-volume = int(input())
+volume = int(input("Set your volume:"))
 pygame.mixer.music.load("gas.mp3")
 pygame.mixer.music.set_volume(volume)
 pygame.mixer.music.play()
@@ -79,7 +79,7 @@ def show_score(choice, color, font, size):
 
 def game_over():
    
-    my_font = pygame.font.SysFont('times new roman', 50)
+    my_font = pygame.font.SysFont("times new roman", 50)
      
 
     game_over_surface = my_font.render(
@@ -147,7 +147,7 @@ while True:
  
 
     snake_body.insert(0, list(snake_position))
-    if snake_position[0] == fruit_position[0] and snake_position[1] == fruit_position[1]:
+    if (snake_position[0] == fruit_position[0] and snake_position[1] == fruit_position[1]):
         lucky = random.randrange(0, 10)
         print(lucky)
         if(lucky == 5):
