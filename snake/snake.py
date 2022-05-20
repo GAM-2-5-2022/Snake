@@ -28,8 +28,8 @@ pygame.init()
 mixer.init()
 
 #song
-#not added 
-volume = int(input("Set your volume:"))
+#There will be error "Failed loading libmpg123-0.dll: The specified module could not be found." if limpg was not automatically installed with pygame
+volume = float(input("Set your volume:"))
 pygame.mixer.music.load("gas.mp3")
 pygame.mixer.music.set_volume(volume)
 pygame.mixer.music.play()
@@ -149,7 +149,6 @@ while True:
     snake_body.insert(0, list(snake_position))
     if (snake_position[0] == fruit_position[0] and snake_position[1] == fruit_position[1]):
         lucky = random.randrange(0, 10)
-        print(lucky)
         if(lucky == 5):
             if(gamer_mode_b == True):
                 snake_speed += 60
