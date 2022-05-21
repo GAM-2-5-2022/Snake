@@ -1,4 +1,5 @@
 #!/bin/bash
+#napraviti da se s grafickim suceljem uz pomoc tkinter ili pygame ubacuje koliko je velik zaslno, gamemod...
 from pygame import mixer
 import pygame
 import time
