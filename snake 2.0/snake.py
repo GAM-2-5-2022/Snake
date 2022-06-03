@@ -1,10 +1,13 @@
 #!/bin/bash
 #python ./snake.py
+from asyncio.format_helpers import _format_callback_source
+from doctest import FAIL_FAST
+from email.mime import application
+from tokenize import Triple
 from pygame import mixer
 import pygame
 import time
 import random
-
 
 gamer_mode = str(input("Input \"g\" for gamer mode: "))
 if(gamer_mode == "g"):
@@ -21,7 +24,7 @@ else:
     background = pygame.image.load("trava.jpg")
 
 
- 
+
 #window size
 x = int(input("Horizontal: "))
 y = int(input("Vertical: "))
@@ -77,7 +80,9 @@ window = pygame.display.set_mode((x, y))
 
 # FPS
 fps = pygame.time.Clock()
- 
+
+snake_dash = False
+dash_smije  = True
 
 snake_position = [100, 50]
  
@@ -151,9 +156,10 @@ while True:
             if (event.key == pygame.K_RIGHT or event.key == pygame.K_d):
                 change_to = "RIGHT"
 
+
             #exit
-            if(event.type == pygame.K_ESCAPE):
-                game_over()
+            if(event.key == pygame.K_ESCAPE):
+                exit()
 
 
     if (change_to == "UP" and direction != "DOWN"):
@@ -232,4 +238,4 @@ while True:
  
     show_score(1, white, "times new roman", 20)
     pygame.display.update()
-    fps.tick(snake_speed)
+    fps.tick(snake_speed)   
