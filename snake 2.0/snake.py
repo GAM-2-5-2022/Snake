@@ -2,7 +2,6 @@
 #python ./snake.py
 from asyncio.format_helpers import _format_callback_source
 from doctest import FAIL_FAST
-from email.mime import application
 from tokenize import Triple
 from pygame import mixer
 import pygame
@@ -23,7 +22,10 @@ else:
     #background
     background = pygame.image.load("trava.jpg")
 
-
+epilepsija = input("Type \"Yˇ\" for epilepsija mod: ")
+epilesija_mode = False
+if(epilepsija == "y" or epilepsija == "Y"):
+    epilepsija_mode = True
 
 #window size
 x = int(input("Horizontal: "))
@@ -139,6 +141,10 @@ def game_over():
     pygame.quit()
      
     quit()
+
+epilesija_integer = 0
+
+        
  
 while True:
     for event in pygame.event.get():
@@ -235,6 +241,28 @@ while True:
     for block in snake_body[1:]:
         if (snake_position[0] == block[0] and snake_position[1] == block[1]):
             game_over()
+
+    if(epilepsija_mode == True):
+        if(epilesija_integer == 0):
+            player_color_real = white
+            epilesija_integer += 1
+    
+        elif(epilesija_integer == 1):
+            player_color_real = red
+            epilesija_integer += 1
+
+        elif(epilesija_integer == 2):
+            player_color_real= yellow
+            epilesija_integer += 1
+
+        elif(epilesija_integer == 3):
+             player_color_real = blue
+             epilesija_integer += 1
+
+        elif(epilesija_integer == 4):
+            player_color_real = green
+            epilesija_integer = 0
+        
  
     show_score(1, white, "times new roman", 20)
     pygame.display.update()
